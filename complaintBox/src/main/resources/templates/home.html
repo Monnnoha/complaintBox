@@ -82,15 +82,15 @@
 <div class="container">
     <h2>Complaint Box</h2>
 
-    <form  action="/home" method="post" >
+    <form  action="/complaint" method="post" >
         <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Enter your name" required>
+        <input type="text" id="name"  name="name" placeholder="Enter your name" required>
 
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Enter your email" required>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
         <label for="message">Complaint</label>
-        <textarea id="message" placeholder="Write your complaint" required></textarea>
+        <textarea id="message" name="message" placeholder="Write your complaint" required></textarea>
 
         <button type="submit">Submit Complaint</button>
     </form>

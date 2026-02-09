@@ -1,9 +1,11 @@
 package com.mohan.complaintBox.controller;
 
 
+import com.mohan.complaintBox.models.Complaint;
 import com.mohan.complaintBox.service.ComplaintService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -21,15 +23,16 @@ public complaintController(ComplaintService complaintService){
         return "home";
     }
 
-    @PostMapping("/home")
+    @PostMapping("/complaint")
     public String addComplaint(
-            @RequestParam String name,
-            @RequestParam String email,
-            @RequestParam String message
-    ){
-        complaintService.addComplaint(name, email, message);
+            @ModelAttribute Complaint complaint){
+        complaintService.addComplaint(complaint.getName(),
+                complaint.getEmail(),
+                complaint.getMessage());
         return "redirect:/home";
     }
+
+
 
 }
 
